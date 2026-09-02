@@ -3,14 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Git Tags</title>
+    <title>GitHub | Colabore e crie</title>
     <style>
         :root {
             color-scheme: light;
             --ink: #17202a;
             --muted: #61707d;
-            --accent: #e85d3f;
-            --accent-dark: #b9432c;
+            --accent: #238636;
+            --accent-dark: #17652a;
+            --line: #d8e1dc;
+            --surface: rgba(255, 255, 255, 0.88);
         }
 
         * {
@@ -25,9 +27,9 @@
             padding: 2rem;
             color: var(--ink);
             background:
-                radial-gradient(circle at 15% 15%, rgba(232, 93, 63, 0.18), transparent 28%),
-                linear-gradient(135deg, #f7f2e9 0%, #e4edf0 100%);
-            font-family: Georgia, "Times New Roman", serif;
+                radial-gradient(circle at 85% 10%, rgba(35, 134, 54, 0.16), transparent 30%),
+                linear-gradient(135deg, #f4f8f5 0%, #e8f0eb 100%);
+            font-family: "Trebuchet MS", Arial, sans-serif;
         }
 
         body::before {
@@ -39,55 +41,107 @@
             pointer-events: none;
         }
 
+        main,
         h1,
+        h2,
         p {
             margin: 0;
         }
 
+        main {
+            width: min(100%, 58rem);
+            padding: clamp(2rem, 6vw, 5rem);
+            border: 1px solid var(--line);
+            background: var(--surface);
+            box-shadow: 0 1.5rem 4rem rgba(23, 32, 42, 0.08);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: clamp(3rem, 8vw, 6rem);
+        }
+
+        .brand {
+            color: var(--ink);
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .tag {
+            color: var(--accent-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
         h1 {
-            max-width: 10ch;
-            font-size: clamp(3rem, 10vw, 6.5rem);
-            line-height: 0.9;
+            max-width: 12ch;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(3rem, 9vw, 6.5rem);
+            line-height: 0.92;
             letter-spacing: -0.04em;
         }
 
         h1::after {
             display: block;
             width: 4rem;
-            height: 0.35rem;
-            margin-top: 1.5rem;
+            height: 0.3rem;
+            margin-top: 1.75rem;
             border-radius: 999px;
             background: var(--accent);
             content: "";
         }
 
-        body > p {
-            width: min(100%, 42rem);
-            margin-top: 1.5rem;
-            padding-left: 1.25rem;
-            border-left: 2px solid var(--accent);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--muted);
-        }
-
-        body > p:first-of-type {
+        .intro {
+            max-width: 40rem;
             margin-top: 2rem;
-            color: var(--ink);
-            font-size: clamp(1.2rem, 3vw, 1.7rem);
-            line-height: 1.35;
+            color: var(--muted);
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            line-height: 1.6;
         }
 
-        body > p:last-of-type {
-            margin-top: 2.5rem;
-            padding: 0;
-            border: 0;
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: clamp(3rem, 7vw, 5rem);
+        }
+
+        .feature {
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent);
+        }
+
+        h2 {
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer strong {
             color: var(--accent-dark);
-            font-family: "Trebuchet MS", sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
         }
 
         @media (max-width: 600px) {
@@ -98,18 +152,57 @@
             body::before {
                 inset: 0.75rem;
             }
+
+            main {
+                padding: 1.5rem;
+            }
+
+            header,
+            footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Sistema de Clientes</h1>
+    <main>
+        <header>
+            <div class="brand">GitHub</div>
+            <div class="tag">Colabore. Crie. Compartilhe.</div>
+        </header>
 
-    <p>Versão inicial do sistema.</p>
+        <section>
+            <h1>Seu código, em movimento.</h1>
+            <p class="intro">O GitHub é uma plataforma para hospedar projetos, acompanhar mudanças e construir soluções em equipe.</p>
+        </section>
 
-    <p>Autor: Sergio Mendes</p>
-    <p>Treinamento github</p>
+        <section class="features" aria-label="Benefícios do GitHub">
+            <article class="feature">
+                <h2>Organize projetos</h2>
+                <p>Use repositórios para manter seu código acessível e bem estruturado.</p>
+            </article>
+            <article class="feature">
+                <h2>Trabalhe em equipe</h2>
+                <p>Colabore com branches, pull requests e revisões de código.</p>
+            </article>
+            <article class="feature">
+                <h2>Acompanhe a evolução</h2>
+                <p>Registre cada alteração e entenda a história do seu projeto.</p>
+            </article>
+        </section>
+
+        <footer>
+            <span>Uma introdução ao GitHub</span>
+            <strong>Autor: Sergio Mendes</strong>
+        </footer>
+    </main>
 
 </body>
 
