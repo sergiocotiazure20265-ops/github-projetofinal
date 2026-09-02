@@ -128,6 +128,54 @@
             line-height: 1.6;
         }
 
+        .flow {
+            margin-top: clamp(3rem, 7vw, 5rem);
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .flow h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+        }
+
+        .flow-intro {
+            max-width: 42rem;
+            margin-top: 0.75rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .flow-step {
+            padding: 1rem;
+            border: 1px solid var(--line);
+            background: rgba(244, 248, 245, 0.72);
+        }
+
+        .flow-step strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-dark);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .flow-step p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            line-height: 1.55;
+        }
+
         footer {
             display: flex;
             align-items: center;
@@ -166,7 +214,17 @@
             .features {
                 grid-template-columns: 1fr;
             }
+
+                .flow-steps {
+                    grid-template-columns: 1fr 1fr;
+                }
         }
+
+            @media (max-width: 400px) {
+                .flow-steps {
+                    grid-template-columns: 1fr;
+                }
+            }
     </style>
 </head>
 
@@ -196,6 +254,29 @@
                 <h2>Acompanhe a evolução</h2>
                 <p>Registre cada alteração e entenda a história do seu projeto.</p>
             </article>
+        </section>
+
+        <section class="flow" aria-labelledby="flow-title">
+            <h2 id="flow-title">GitHub Flow: do plano ao código</h2>
+            <p class="flow-intro">O GitHub Flow é um fluxo de trabalho simples para desenvolver com segurança. Cada mudança acontece de forma isolada, passa por revisão e só então chega ao projeto principal.</p>
+            <ol class="flow-steps">
+                <li class="flow-step">
+                    <strong>01. Branch</strong>
+                    <p>Crie uma branch a partir do projeto principal para trabalhar em uma nova ideia ou correção.</p>
+                </li>
+                <li class="flow-step">
+                    <strong>02. Alterações</strong>
+                    <p>Faça o trabalho e registre pequenas mudanças com commits claros e fáceis de acompanhar.</p>
+                </li>
+                <li class="flow-step">
+                    <strong>03. Pull request</strong>
+                    <p>Abra um pull request para apresentar o que foi feito, discutir a solução e receber feedback.</p>
+                </li>
+                <li class="flow-step">
+                    <strong>04. Merge</strong>
+                    <p>Depois da revisão e dos testes, integre as alterações ao projeto principal.</p>
+                </li>
+            </ol>
         </section>
 
         <footer>
